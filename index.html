@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Typing speed test</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Take a typing speed test!</h1>
+        <b id="dispTime" class="text">Start typing</b>
+        <div id="time">
+            <b class="timeText">Select time: </b>
+            <div id="timeOpts">
+                <input type="radio" name="time" value="30" class="opt" id="30"><label for="30">30 s</label>
+                <input type="radio" name="time" value="60" class="opt" id="60"><label for="60">1 min</label>
+                <input type="radio" name="time" value="90" class="opt" id="90"><label for="90">1 min 30 s</label>
+                <input type="radio" name="time" value="120" class="opt" id="120"><label for="120">2 min</label>
+            </div>
+            <button onclick="displayText()"><b>Go!</b></button>
+        </div>
+        <p class="text" id="original"></p>
+        <div id="keyText">
+            <textarea class="text" id="text" onkeydown="press(event)" onkeyup="fun(event)" onpaste="return false" maxlength="0"></textarea>
+            <div class="keyboard">
+                <div class="rows">
+                    <span class="key" id="Backquote">`</span>
+                    <span class="key" id="Digit1"><span class="sup">!</span>1</span>
+                    <span class="key" id="Digit2"><span class="sup">@</span>2</span>
+                    <span class="key"id="Digit3"><span class="sup">#</span>3</span>
+                    <span class="key" id="Digit4"><span class="sup">$</span>4</span>
+                    <span class="key" id="Digit5"><span class="sup">%</span>5</span>
+                    <span class="key" id="Digit6"><span class="sup">^</span>6</span>
+                    <span class="key" id="Digit7"><span class="sup">&</span>7</span>
+                    <span class="key" id="Digit8"><span class="sup">*</span>8</span>
+                    <span class="key" id="Digit9"><span class="sup">(</span>9</span>
+                    <span class="key" id="Digit0"><span class="sup">)</span>0</span>
+                    <span class="key" id="Minus"><span class="sup">_</span>-</span>
+                    <span class="key" id="Equals"><span class="sup">+</span>=</span>
+                    <span class="key" id="Backspace">backspace</span>
+                </div>
+                <div class="rows">
+                    <span class="key" id="Tab">tab</span>
+                    <span class="key" id="KeyQ">Q</span>
+                    <span class="key" id="KeyW">W</span>
+                    <span class="key" id="KeyE">E</span>
+                    <span class="key" id="KeyR">R</span>
+                    <span class="key" id="KeyT">T</span>
+                    <span class="key" id="KeyY">Y</span>
+                    <span class="key" id="KeyU">U</span>
+                    <span class="key" id="KeyI">I</span>
+                    <span class="key" id="KeyO">O</span>
+                    <span class="key" id="KeyP">P</span>
+                    <span class="key" id="BracketLeft"><span class="sup">{</span>[</span>
+                    <span class="key" id="BracketRight"><span class="sup">}</span>]</span>
+                    <span class="key" id="Backslash"><span class="sup">|</span>\</span>
+                </div>
+                <div class="rows">
+                    <span class="key" id="CapsLock">caps</span>
+                    <span class="key" id="KeyA">A</span>
+                    <span class="key" id="KeyS">S</span>
+                    <span class="key" id="KeyD">D</span>
+                    <span class="key" id="KeyF">F</span>
+                    <span class="key" id="KeyG">G</span>
+                    <span class="key" id="KeyH">H</span>
+                    <span class="key" id="KeyI">I</span>
+                    <span class="key" id="KeyJ">J</span>
+                    <span class="key" id="KeyK">K</span>
+                    <span class="key" id="KeyL">L</span>
+                    <span class="key" id="Semicolon"><span class="sup">:</span>;</span>
+                    <span class="key" id="Quote"><span class="sup">"</span>'</span>
+                    <span class="key" id="Enter">Enter</span>
+                </div>
+                <div class="rows">
+                    <span class="key" id="ShiftLeft">shift</span>
+                    <span class="key" id="KeyZ">Z</span>
+                    <span class="key" id="KeyX">X</span>
+                    <span class="key" id="KeyC">C</span>
+                    <span class="key" id="KeyV">V</span>
+                    <span class="key" id="KeyB">B</span>
+                    <span class="key" id="KeyN">N</span>
+                    <span class="key" id="KeyM">M</span>
+                    <span class="key" id="Comma"><span class="sup"><</span>,</span>
+                    <span class="key" id="Period"><span class="sup">></span>.</span>
+                    <span class="key" id="Slash"><span class="sup">?</span>/</span>
+                    <span class="key" id="ShiftRight">shift</span>
+                </div>
+                <div class="rows">
+                    <span class="key" id="ControlLeft">ctrl</span>
+                    <span class="key" id="AltLeft">alt</span>
+                    <span class="key" id="Space">space</span>
+                    <span class="key" id="AltRight">alt gr</span>
+                    <span class="key" id="ControlRight">ctrl</span>
+                </div>
+            </div>
+        </div>
+        <div id="result">
+            <b id="resultText"></b>
+            <button onclick="reset()"><b>Try again</b></button>
+        </div>
+        <script src="script2.js" type="text/javascript"></script>
+    </body>
+</html>
