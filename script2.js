@@ -12,20 +12,7 @@ document.getElementById('time').addEventListener('click', (e) => {
     if(e.target.tagName==="INPUT")
         time=Number(e.target.value);
 });
-// window.addEventListener('keydown', (e) => {
-//     var key=document.getElementById(e.code);
-//     key.style.translate="5px 5px 5px";
-//     key.style.color="var(--c1)";
-//     key.style.backgroundColor="var(--c3)";
-//     key.style.boxShadow="3px 3px 0 var(--c1)";
-// });
-// window.addEventListener('keyup', (e) => {
-//     var key=document.getElementById(e.code);
-//     key.style.translate="0 0 0";
-//     key.style.color="var(--c3)";
-//     key.style.backgroundColor="var(--c1)";
-//     key.style.boxShadow="5px 5px 0 var(--c3)";
-// });
+
 function displayText(){
     console.log(paragraphs);
     if(time===0)
@@ -60,12 +47,19 @@ function startTime(time){
         t.disabled=true;
         clearInterval(display);
         var total=String(t.value).length;
+        var correct=total-err;
+        console.log(total);
+        console.log(err);
+        console.log(correct);
         var speed=parseInt(((total/5)-err)/(time/60));
+        var accuracy=parseInt((correct/total)*100);
         if(speed<0)
             speed=0;
         document.getElementById('result').style.display="flex";
-        var res=document.getElementById("resultText")
-        res.innerHTML=`Your typing speed is: ${speed} WPM`;
+        var wpm=document.getElementById('speed');
+        wpm.innerHTML=`Your typing speed is: ${speed} WPM`;
+        var acc=document.getElementById('accuracy');
+        acc.innerHTML=`Your accuracy is: ${accuracy}%`;
     },(time*1000));
 }
 
