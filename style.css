@@ -105,6 +105,7 @@ textarea{
     text-shadow: 2px 2px 0 var(--c3);
 }
 .w{
+    font-weight: bold;
     color: var(--c3);
     background-color: var(--c4);
     box-shadow: 1.5px 1.5px 0 var(--c3);

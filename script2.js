@@ -82,25 +82,42 @@ function fun(e){
     var out=document.getElementById('original');
     out.innerHTML="<span class='c'></span>";
     var corr=document.querySelector('.c');
-    var i=0;
+    var i=0,flag2=0;
     for(i=0;i<text.length;i++)
     {
         if(i<main.length)
         {
             if(text[i]===main[i])
+            {
+                if(flag2===1)
+                    corr.innerHTML+="</b></span>";
                 corr.innerHTML+=text[i];
+                flag2=0;
+            }
             else
             {
-                corr.innerHTML+=`<span class='w'><b>${main[i]}</b></span>`;
+                // corr.innerHTML+=`<span class='w'><b>${main[i]}</b></span>`;
+                if(flag2===0)
+                    corr.innerHTML+=`<span class='w'>${main[i]}</span>`;
+                else
+                {
+                    var l=document.querySelectorAll('.w');
+                    l[l.length-1].innerHTML+=main[i];
+                }
                 err++;
+                flag2=1;
             }
         }
         else
             break;
     }
     if(i<main.length)
+    {
+        if(flag2===1)
+            corr.innerHTML+="</b></span>";
         for(var j=i;j<main.length;j++)
             out.innerHTML+=main[j];
+    }
 }
 
 function press(e){
