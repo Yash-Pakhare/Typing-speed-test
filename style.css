@@ -158,8 +158,9 @@ label{
     transition: 0.5s;
 }
 label:hover{
-    height: 45px;
-    width: 155px;
+    translate: -8px -8px -8rem;
+    /* height: 45px;
+    width: 155px; */
 }
 label:before{
     content: "";

@@ -49,6 +49,7 @@ function startTime(time){
         document.getElementById('dispTime').innerHTML=`${time2--}`;
     },1000);
     setTimeout(() => {
+        fun2();
         document.querySelectorAll('.key').forEach((x) => {
             x.style.translate="0 0 0";
             x.style.color="var(--c3)";
@@ -74,10 +75,14 @@ function fun(e){
     key.style.color="var(--c3)";
     key.style.backgroundColor="var(--c1)";
     key.style.boxShadow="5px 5px 0 var(--c3)";
-    err=0;
     if(flag===0)
         startTime(time);
     flag=1;
+    fun2();
+}
+
+function fun2(){
+    err=0;
     var text=String(document.getElementById("text").value);
     var out=document.getElementById('original');
     out.innerHTML="<span class='c'></span>";
@@ -89,14 +94,11 @@ function fun(e){
         {
             if(text[i]===main[i])
             {
-                if(flag2===1)
-                    corr.innerHTML+="</b></span>";
                 corr.innerHTML+=text[i];
                 flag2=0;
             }
             else
             {
-                // corr.innerHTML+=`<span class='w'><b>${main[i]}</b></span>`;
                 if(flag2===0)
                     corr.innerHTML+=`<span class='w'>${main[i]}</span>`;
                 else
@@ -112,12 +114,8 @@ function fun(e){
             break;
     }
     if(i<main.length)
-    {
-        if(flag2===1)
-            corr.innerHTML+="</b></span>";
         for(var j=i;j<main.length;j++)
             out.innerHTML+=main[j];
-    }
 }
 
 function press(e){
